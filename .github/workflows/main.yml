@@ -1,0 +1,18 @@
+name: Update Trufario Kanban page
+on:
+  workflow_dispatch:
+
+jobs:
+  update_kanban:
+    name: Build the static Kanban page for Trufario
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: serchinastico/github-kanban-action@main
+        with:
+          project-url: https://github.com/users/Serchinastico/projects/7
+          token: ${{ secrets.GH_TOKEN }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
