@@ -1,6 +1,8 @@
 name: Update Trufario Kanban page
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "30 7 * * *"
 
 jobs:
   update_kanban:
